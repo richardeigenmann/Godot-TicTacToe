@@ -232,7 +232,7 @@ position = Vector2( 38.6308, 37.152 )
 scale = Vector2( 0.303441, 0.362493 )
 frames = ExtResource( 7 )
 animation = "default"
-frame = 17
+frame = 26
 playing = true
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
