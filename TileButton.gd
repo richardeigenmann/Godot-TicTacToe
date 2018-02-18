@@ -1,10 +1,11 @@
 extends Button
 
-var state = 0;
-var playerState = 2;
+var state = 0
+
+var myBoard
 
 func _ready():
-	pass
+	myBoard = get_node("/root/Board")
 	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -25,5 +26,6 @@ func setState( newState ):
 	
 
 func _on_Button_pressed():
-	if state == 0:
-		setState ( playerState )
+	if myBoard.humanPlayersTurn && state == 0:
+		setState ( myBoard.playerState )
+		myBoard.humanPlayersTurn = false

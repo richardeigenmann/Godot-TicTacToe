@@ -32,8 +32,9 @@ The xWins and oWins functions are hard coded against the element positions of
 the group. Not using a loop is perhaps lazy and error prone but on the other hand 
 the computer needs to do all the same tests anyway so it doesn't really matter.
 
-Problem: How to record global state so that after the player has played we need 
-the opponent to play?
+Global State: the game has some global state like whether it's the human's turn 
+and whether the human is playing X or O. The Tile can query this using the 
+`get_node(/root/Board")` function.
 
 
 

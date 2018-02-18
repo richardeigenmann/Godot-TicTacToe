@@ -1,15 +1,19 @@
 extends Node
 
-var gameWon = false;
-
-var humanPlayersTurn = true;
-
+var gameWon = false
+var humanPlayersTurn = true
+var playerState = 1
+var computerState = 2
+var tiles
 
 func _ready():
+	tiles = get_tree().get_nodes_in_group("Tiles")
 	newGame()
 
 func _process(delta):
 	gameWon = gameWon()
+	if ! gameWon && ! humanPlayersTurn:
+		computerTurn()
 	
 func gameWon():
 	if xWins():
@@ -25,12 +29,11 @@ func gameWon():
 func newGame():
 	$NewGameButton.visible = false
 	$WinnerLabel.visible = false
-	for tile in get_tree().get_nodes_in_group("Tiles") :
+	for tile in tiles :
 		tile.setState(0)
 
 # Somewhat inelegant way to test if the game is won but it works....
 func xWins():
-	var tiles = get_tree().get_nodes_in_group("Tiles")
 	if     tiles[0].state == 1 && tiles[1].state == 1 && tiles[2].state == 1 \
 		|| tiles[3].state == 1 && tiles[4].state == 1 && tiles[5].state == 1 \
 		|| tiles[6].state == 1 && tiles[7].state == 1 && tiles[8].state == 1 \
@@ -47,7 +50,6 @@ func xWins():
 
 # Somewhat inelegant way to test if the game is won but it works....
 func oWins():
-	var tiles = get_tree().get_nodes_in_group("Tiles")
 	if     tiles[0].state == 2 && tiles[1].state == 2 && tiles[2].state == 2 \
 		|| tiles[3].state == 2 && tiles[4].state == 2 && tiles[5].state == 2 \
 		|| tiles[6].state == 2 && tiles[7].state == 2 && tiles[8].state == 2 \
@@ -65,3 +67,11 @@ func oWins():
 
 func _on_NewGameButton_pressed():
 	newGame()
+	
+func computerTurn():
+	for tile in tiles:
+		if tile.state == 0:
+			tile.setState(computerState)
+			break
+	humanPlayersTurn = true
+	
