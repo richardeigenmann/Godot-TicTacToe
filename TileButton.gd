@@ -1,23 +1,18 @@
 extends Button
 
-var state = 0
-
+var state
 var myBoard
 
 func _ready():
 	myBoard = get_node("/root/Board")
-	
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+	state = myBoard.EMPTY
 
 func setState( newState ):
-	state = newState % 3
-	if state == 1:
+	state = newState
+	if state == myBoard.X:
 		$X_Texture.visible = true
 		$O_Texture.visible = false
-	elif state == 2:
+	elif state == myBoard.O:
 		$X_Texture.visible = false
 		$O_Texture.visible = true
 	else:
@@ -26,6 +21,6 @@ func setState( newState ):
 	
 
 func _on_Button_pressed():
-	if myBoard.humanPlayersTurn && state == 0:
+	if myBoard.humanPlayersTurn && state == myBoard.EMPTY:
 		setState ( myBoard.playerState )
-		myBoard.humanPlayersTurn = false
+		myBoard.humanHasPlayed()

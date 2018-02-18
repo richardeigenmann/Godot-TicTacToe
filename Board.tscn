@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://assets/bar.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://TileButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://NewGameFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/Gears.tres" type="SpriteFrames" id=7]
 
 [node name="Board" type="Node" index="0"]
 
@@ -172,10 +173,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 88.0
-margin_top = 157.0
-margin_right = 564.0
-margin_bottom = 329.0
+margin_left = -1.0
+margin_top = 22.0
+margin_right = 612.0
+margin_bottom = 303.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -183,7 +184,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.864714, 0.871094, 0.0544434, 1 )
-text = "X wins!"
+text = "Computer
+wins!"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -217,6 +219,24 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="ComputerThinkTimer" type="Timer" parent="." index="15"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="ComputerThinkingAnimation" type="AnimatedSprite" parent="." index="16"]
+
+position = Vector2( 38.6308, 37.152 )
+scale = Vector2( 0.303441, 0.362493 )
+frames = ExtResource( 7 )
+animation = "default"
+frame = 17
+playing = true
+
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
+
+[connection signal="timeout" from="ComputerThinkTimer" to="." method="_on_ComputerThinkTimer_timeout"]
 
 
