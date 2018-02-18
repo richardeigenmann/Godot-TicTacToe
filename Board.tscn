@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://assets/bar.png" type="Texture" id=2]
 [ext_resource path="res://assets/bar-vert.png" type="Texture" id=3]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://NewGameFont.tres" type="DynamicFont" id=6]
 
 [node name="Board" type="Node" index="0"]
 
@@ -166,5 +168,57 @@ margin_left = 35.0
 margin_top = 448.0
 margin_right = 676.0
 margin_bottom = 928.0
+
+[node name="WinnerLabel" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 103.0
+margin_top = 199.0
+margin_right = 579.0
+margin_bottom = 371.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.864714, 0.871094, 0.0544434, 1 )
+text = "X wins!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="NewGameButton" type="Button" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 346.0
+margin_top = 438.0
+margin_right = 665.0
+margin_bottom = 541.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New Game"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 
 

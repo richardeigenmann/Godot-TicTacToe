@@ -15,10 +15,8 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
-func _on_Button_pressed():
-	state += 1
-	state %= 3
+func setState( newState ):
+	state = newState % 3
 	if state == 1:
 		$X_Texture.visible = true
 		$O_Texture.visible = false
@@ -28,3 +26,7 @@ func _on_Button_pressed():
 	else:
 		$X_Texture.visible = false
 		$O_Texture.visible = false
+	
+
+func _on_Button_pressed():
+	setState ( state + 1 )

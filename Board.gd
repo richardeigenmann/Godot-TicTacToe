@@ -6,17 +6,23 @@ extends Node
 var gameWon = false;
 
 func _ready():
+	$WinnerLabel.visible = false
+	$NewGameButton.visible = false
 	pass
 
 func _process(delta):
 	gameWon = gameWon()
-	if gameWon :
-		print("Winner")
-	else:
-		print("No Winner")
 	
 func gameWon():
-	return xWins() || oWins()
+	if xWins():
+		$WinnerLabel.text = "X wins!"
+		$WinnerLabel.visible = true
+		$NewGameButton.visible = true
+	elif oWins():
+		$WinnerLabel.text = "O wins!"
+		$WinnerLabel.visible = true
+		$NewGameButton.visible = true
+		
 
 
 # Somewhat inelegant way to test if the game is won but it works....
@@ -52,3 +58,10 @@ func oWins():
 		return true
 	
 	return false
+
+
+func _on_NewGameButton_pressed():
+	$NewGameButton.visible = false
+	$WinnerLabel.visible = false
+	for tile in get_tree().get_nodes_in_group("Tiles") :
+		tile.setState(0)
