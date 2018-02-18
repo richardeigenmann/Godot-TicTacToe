@@ -1,14 +1,12 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var gameWon = false;
 
+var humanPlayersTurn = true;
+
+
 func _ready():
-	$WinnerLabel.visible = false
-	$NewGameButton.visible = false
-	pass
+	newGame()
 
 func _process(delta):
 	gameWon = gameWon()
@@ -24,6 +22,11 @@ func gameWon():
 		$NewGameButton.visible = true
 		
 
+func newGame():
+	$NewGameButton.visible = false
+	$WinnerLabel.visible = false
+	for tile in get_tree().get_nodes_in_group("Tiles") :
+		tile.setState(0)
 
 # Somewhat inelegant way to test if the game is won but it works....
 func xWins():
@@ -61,7 +64,4 @@ func oWins():
 
 
 func _on_NewGameButton_pressed():
-	$NewGameButton.visible = false
-	$WinnerLabel.visible = false
-	for tile in get_tree().get_nodes_in_group("Tiles") :
-		tile.setState(0)
+	newGame()
