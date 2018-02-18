@@ -24,7 +24,7 @@ all added to a Group called Tiles.
 Thus the data model of the game is held in the TileButton nodes of the Tiles 
 group. This allows game logic to query the state using the GDScript call:
 
-```GDScript
+``` python
 get_tree().get_nodes_in_group("Tiles")
 ```
 
@@ -36,5 +36,9 @@ Global State: the game has some global state like whether it's the human's turn
 and whether the human is playing X or O. The Tile can query this using the 
 `get_node(/root/Board")` function.
 
+# TODO
+
+Add unit tests: https://github.com/bitwes/Gut
+Add autoplay
 
 
