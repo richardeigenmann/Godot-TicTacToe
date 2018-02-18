@@ -6,6 +6,7 @@ extends Button
 var IndexNumber
 
 var state = 0;
+var playerState = 2;
 
 func _ready():
 	pass
@@ -29,4 +30,5 @@ func setState( newState ):
 	
 
 func _on_Button_pressed():
-	setState ( state + 1 )
+	if state == 0:
+		setState ( playerState )
