@@ -11,11 +11,11 @@ func _ready():
 func setState( newState ):
 	state = newState
 	if state == myBoard.X:
-		print("move: ", myBoard.moves, " X plays: ", newState)
+		print("move: ", myBoard.moves, " X plays: ", self.name)
 		$X_Texture.visible = true
 		$O_Texture.visible = false
 	elif state == myBoard.O:
-		print("move: ", myBoard.moves, " O plays: ", newState)
+		print("move: ", myBoard.moves, " O plays: ", self.name)
 		$X_Texture.visible = false
 		$O_Texture.visible = true
 	else:

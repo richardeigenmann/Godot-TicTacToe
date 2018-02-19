@@ -15,24 +15,25 @@ it at Fosdem 2017 and Fosdem 2018 (v3).
 
 The Board has 4 TextureRect bars to make the 9 slot grid.
 
-A TileButton class which extends Button has a click listener and an internal 
+A TileButton class which extends Button has a click listener and an internal
 state.
 
-9 of these TileButtons are added to each of the slot grids. The TileButtons are 
+9 of these TileButtons are added to each of the slot grids. The TileButtons are
 all added to a Group called Tiles.
 
-Thus the data model of the game is held in the TileButton nodes of the Tiles 
+Thus the data model of the game is held in the TileButton nodes of the Tiles
 group. This allows game logic to query the state using the GDScript call:
 
 ``` python
 get_tree().get_nodes_in_group("Tiles")
 ```
 
-Global State: the game has some global state like whether it's the human's turn 
-and whether the human is playing X or O. The Tile can query this using the 
+Global State: the game has some global state like whether it's the human's turn
+and whether the human is playing X or O. The Tile can query this using the
 `get_node(/root/Board")` function.
 
-# TODO
+## TODO
 
-Add unit tests: https://github.com/bitwes/Gut
-Add autoplay
+* Add unit tests: https://github.com/bitwes/Gut
+* Add autoplay
+* The logic from Wikipedia doesn't work!

@@ -55,15 +55,17 @@ func _on_ComputerThinkTimer_timeout():
 
 # Logic taken from Wikipedia: https://en.wikipedia.org/wiki/Tic-tac-toe
 func computerTurn():
-	moves += 1
 	if ! computerCanWin():
 		if ! computerMustBlock():
 			if ! computerTakesCenter():
-				if ! computerCreatesFork():
-					if ! computerMustBlockOpponentsFork():
-						if !computerTakesEmptySide():
-							if ! computerTakesOppositeCorner():
-								computerTakesEmptyCorner()
+				if ! computerTakesEmptySide():
+					if ! computerTakesEmptyCorner():
+						if ! computerCreatesFork():
+							if ! computerMustBlockOpponentsFork():
+								if !computerTakesEmptySide():
+									! computerTakesOppositeCorner()
+								
+	moves += 1
 
 
 	if isWinner(computerState):
