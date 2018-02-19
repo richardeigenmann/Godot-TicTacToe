@@ -3,6 +3,7 @@ extends Button
 var state
 var myBoard
 
+
 func _ready():
 	myBoard = get_node("/root/Board")
 	state = myBoard.EMPTY
@@ -10,9 +11,11 @@ func _ready():
 func setState( newState ):
 	state = newState
 	if state == myBoard.X:
+		print("move: ", myBoard.moves, " X plays: ", newState)
 		$X_Texture.visible = true
 		$O_Texture.visible = false
 	elif state == myBoard.O:
+		print("move: ", myBoard.moves, " O plays: ", newState)
 		$X_Texture.visible = false
 		$O_Texture.visible = true
 	else:

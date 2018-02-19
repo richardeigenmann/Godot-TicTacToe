@@ -18,9 +18,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 144.0
+margin_top = 217.0
 margin_right = 683.0
-margin_bottom = 163.0
+margin_bottom = 236.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -36,9 +36,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 309.0
+margin_top = 382.0
 margin_right = 683.0
-margin_bottom = 328.0
+margin_bottom = 401.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -55,8 +55,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 192.0
+margin_top = 73.0
 margin_right = 210.0
-margin_bottom = 683.0
+margin_bottom = 756.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -73,8 +74,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 403.0
+margin_top = 73.0
 margin_right = 421.0
-margin_bottom = 683.0
+margin_bottom = 756.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -89,9 +91,9 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 ] instance=ExtResource( 4 )]
 
 margin_left = 1.0
-margin_top = 2.0
+margin_top = 75.0
 margin_right = 642.0
-margin_bottom = 482.0
+margin_bottom = 555.0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Material", "Pause", "Rect", "Visibility", "custom_constants" ]
 
 [node name="Button1" parent="." index="5" groups=[
@@ -99,72 +101,72 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Material",
 ] instance=ExtResource( 4 )]
 
 margin_left = 211.0
-margin_top = 2.0
+margin_top = 75.0
 margin_right = 852.0
-margin_bottom = 482.0
+margin_bottom = 555.0
 
 [node name="Button2" parent="." index="6" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 421.0
-margin_top = 2.0
+margin_top = 75.0
 margin_right = 1062.0
-margin_bottom = 482.0
+margin_bottom = 555.0
 
 [node name="Button3" parent="." index="7" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 1.0
-margin_top = 163.0
+margin_top = 236.0
 margin_right = 642.0
-margin_bottom = 643.0
+margin_bottom = 716.0
 
 [node name="Button4" parent="." index="8" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 210.0
-margin_top = 163.0
+margin_top = 236.0
 margin_right = 851.0
-margin_bottom = 643.0
+margin_bottom = 716.0
 
 [node name="Button5" parent="." index="9" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 421.0
-margin_top = 161.0
+margin_top = 234.0
 margin_right = 1062.0
-margin_bottom = 641.0
+margin_bottom = 714.0
 
 [node name="Button6" parent="." index="10" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 1.0
-margin_top = 328.0
+margin_top = 401.0
 margin_right = 642.0
-margin_bottom = 808.0
+margin_bottom = 881.0
 
 [node name="Button7" parent="." index="11" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 210.0
-margin_top = 327.0
+margin_top = 400.0
 margin_right = 851.0
-margin_bottom = 807.0
+margin_bottom = 880.0
 
 [node name="Button8" parent="." index="12" groups=[
 "Tiles",
 ] instance=ExtResource( 4 )]
 
 margin_left = 421.0
-margin_top = 327.0
+margin_top = 400.0
 margin_right = 1062.0
-margin_bottom = 807.0
+margin_bottom = 880.0
 
 [node name="WinnerLabel" type="Label" parent="." index="13"]
 
@@ -173,10 +175,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -1.0
-margin_top = 22.0
-margin_right = 612.0
-margin_bottom = 303.0
+margin_top = 2.0
+margin_right = 149.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -199,10 +200,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 283.0
-margin_top = 348.0
-margin_right = 602.0
-margin_bottom = 451.0
+margin_left = 449.0
+margin_top = 1.0
+margin_right = 613.0
+margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -228,12 +229,95 @@ autostart = false
 
 [node name="ComputerThinkingAnimation" type="AnimatedSprite" parent="." index="16"]
 
+visible = false
 position = Vector2( 38.6308, 37.152 )
 scale = Vector2( 0.303441, 0.362493 )
 frames = ExtResource( 7 )
 animation = "default"
 frame = 26
 playing = true
+
+[node name="YouLabel" type="Label" parent="." index="17"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 242.0
+margin_top = 10.0
+margin_right = 282.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "You:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="YouScoreLabel" type="Label" parent="." index="18"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 313.0
+margin_top = 9.0
+margin_right = 341.0
+margin_bottom = 28.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ComputerScoreLabel" type="Label" parent="." index="19"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 313.0
+margin_top = 32.0
+margin_right = 342.0
+margin_bottom = 51.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ComputerLabel" type="Label" parent="." index="20"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 243.0
+margin_top = 32.0
+margin_right = 310.0
+margin_bottom = 51.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Computer:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 

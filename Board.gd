@@ -6,8 +6,10 @@ var humanPlayersTurn = true
 var playerState = X
 var computerState = O
 var emptyState = EMPTY
-var rounds
+var moves
 var tiles
+var humanWins = 0
+var computerWins = 0
 
 func _ready():
 	tiles = get_tree().get_nodes_in_group("Tiles")
@@ -19,7 +21,7 @@ func _on_NewGameButton_pressed():
 func newGame():
 	$NewGameButton.visible = false
 	$WinnerLabel.visible = false
-	rounds = 0
+	moves = 0
 	humanPlayersTurn = true
 	$ComputerThinkingAnimation.visible = false
 	for tile in tiles :
@@ -28,15 +30,18 @@ func newGame():
 func gameOver():
 	$WinnerLabel.visible = true
 	$NewGameButton.visible = true
+	$ComputerScoreLabel.text = str(computerWins)
+	$YouScoreLabel.text = str(humanWins)
 
 # The Tile must call here when the human has played
 func humanHasPlayed():
-	rounds += 1
+	moves += 1
 	humanPlayersTurn = false
 	if isWinner( playerState ) :
 		$WinnerLabel.text = "You won!"
+		humanWins += 1
 		gameOver()
-	elif rounds > 8:
+	elif moves > 8:
 		$WinnerLabel.text = "Draw"
 		gameOver()
 	else:
@@ -50,21 +55,23 @@ func _on_ComputerThinkTimer_timeout():
 
 # Logic taken from Wikipedia: https://en.wikipedia.org/wiki/Tic-tac-toe
 func computerTurn():
-	rounds += 1
+	moves += 1
 	if ! computerCanWin():
 		if ! computerMustBlock():
-			if ! computerCreatesFork():
-				if ! computerMustBlockOpponentsFork():
-					if ! computerTakesCenter():
-						if ! computerTakesOppositeCorner():
-							if ! computerTakesEmptyCorner():
-								computerTakesEmptySide()
+			if ! computerTakesCenter():
+				if ! computerCreatesFork():
+					if ! computerMustBlockOpponentsFork():
+						if !computerTakesEmptySide():
+							if ! computerTakesOppositeCorner():
+								computerTakesEmptyCorner()
+
 
 	if isWinner(computerState):
 		$WinnerLabel.text = "Computer\nwins!"
+		computerWins += 1
 		gameOver()
 
-	if rounds > 8:
+	if moves > 8:
 		$WinnerLabel.text = "Draw"
 		gameOver()
 
