@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://assets/bar.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://NewGameFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/Gears.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://WikipediaAlgo.gd" type="Script" id=8]
+[ext_resource path="res://RandomAlgo.gd" type="Script" id=9]
 
 [node name="Board" type="Node" index="0"]
 
@@ -249,7 +251,7 @@ position = Vector2( 38.6308, 37.152 )
 scale = Vector2( 0.303441, 0.362493 )
 frames = ExtResource( 7 )
 animation = "default"
-frame = 36
+frame = 31
 playing = true
 
 [node name="YouLabel" type="Label" parent="." index="17"]
@@ -337,6 +339,14 @@ text = "Computer:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="WikipediaAlgo" type="Node" parent="." index="21"]
+
+script = ExtResource( 8 )
+
+[node name="RandomAlgo" type="Node" parent="." index="22"]
+
+script = ExtResource( 9 )
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 

@@ -24,13 +24,30 @@ all added to a Group called Tiles.
 Thus the data model of the game is held in the TileButton nodes of the Tiles
 group. This allows game logic to query the state using the GDScript call:
 
-``` python
+```python
 get_tree().get_nodes_in_group("Tiles")
 ```
 
 Global State: the game has some global state like whether it's the human's turn
 and whether the human is playing X or O. The Tile can query this using the
 `get_node(/root/Board")` function.
+
+## Algos
+
+One of the interesting things about programming the game is how to actually
+program the winning algorithm. Wikipedia has a (self confessed) broken algo.
+MinMax is billed to be the smarter choice. Random clearly isn't so great.
+
+I've chosen to add non displaying nodes to the Game that have the following
+interface function:
+
+```python
+func playMove( player, opponent ):
+```
+
+This allows me to call the `playMove` function in the Bard GDScript on whichever
+Algo I choose.
+
 
 ## TODO
 
