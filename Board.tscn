@@ -22,6 +22,7 @@ margin_top = 217.0
 margin_right = 683.0
 margin_bottom = 236.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -40,6 +41,7 @@ margin_top = 382.0
 margin_right = 683.0
 margin_bottom = 401.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -59,6 +61,7 @@ margin_top = 73.0
 margin_right = 210.0
 margin_bottom = 756.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -78,6 +81,7 @@ margin_top = 73.0
 margin_right = 421.0
 margin_bottom = 756.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -94,6 +98,7 @@ margin_left = 1.0
 margin_top = 75.0
 margin_right = 642.0
 margin_bottom = 555.0
+rect_clip_content = false
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Material", "Pause", "Rect", "Visibility", "custom_constants" ]
 
 [node name="Button1" parent="." index="5" groups=[
@@ -104,6 +109,7 @@ margin_left = 211.0
 margin_top = 75.0
 margin_right = 852.0
 margin_bottom = 555.0
+rect_clip_content = false
 
 [node name="Button2" parent="." index="6" groups=[
 "Tiles",
@@ -113,6 +119,7 @@ margin_left = 421.0
 margin_top = 75.0
 margin_right = 1062.0
 margin_bottom = 555.0
+rect_clip_content = false
 
 [node name="Button3" parent="." index="7" groups=[
 "Tiles",
@@ -122,6 +129,7 @@ margin_left = 1.0
 margin_top = 236.0
 margin_right = 642.0
 margin_bottom = 716.0
+rect_clip_content = false
 
 [node name="Button4" parent="." index="8" groups=[
 "Tiles",
@@ -131,6 +139,7 @@ margin_left = 210.0
 margin_top = 236.0
 margin_right = 851.0
 margin_bottom = 716.0
+rect_clip_content = false
 
 [node name="Button5" parent="." index="9" groups=[
 "Tiles",
@@ -140,6 +149,7 @@ margin_left = 421.0
 margin_top = 234.0
 margin_right = 1062.0
 margin_bottom = 714.0
+rect_clip_content = false
 
 [node name="Button6" parent="." index="10" groups=[
 "Tiles",
@@ -149,6 +159,7 @@ margin_left = 1.0
 margin_top = 401.0
 margin_right = 642.0
 margin_bottom = 881.0
+rect_clip_content = false
 
 [node name="Button7" parent="." index="11" groups=[
 "Tiles",
@@ -158,6 +169,7 @@ margin_left = 210.0
 margin_top = 400.0
 margin_right = 851.0
 margin_bottom = 880.0
+rect_clip_content = false
 
 [node name="Button8" parent="." index="12" groups=[
 "Tiles",
@@ -167,6 +179,7 @@ margin_left = 421.0
 margin_top = 400.0
 margin_right = 1062.0
 margin_bottom = 880.0
+rect_clip_content = false
 
 [node name="WinnerLabel" type="Label" parent="." index="13"]
 
@@ -179,6 +192,7 @@ margin_top = 2.0
 margin_right = 149.0
 margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -205,6 +219,7 @@ margin_top = 1.0
 margin_right = 613.0
 margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -234,7 +249,7 @@ position = Vector2( 38.6308, 37.152 )
 scale = Vector2( 0.303441, 0.362493 )
 frames = ExtResource( 7 )
 animation = "default"
-frame = 26
+frame = 36
 playing = true
 
 [node name="YouLabel" type="Label" parent="." index="17"]
@@ -248,6 +263,7 @@ margin_top = 10.0
 margin_right = 282.0
 margin_bottom = 29.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -268,6 +284,7 @@ margin_top = 9.0
 margin_right = 341.0
 margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -289,6 +306,7 @@ margin_top = 32.0
 margin_right = 342.0
 margin_bottom = 51.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -310,6 +328,7 @@ margin_top = 32.0
 margin_right = 310.0
 margin_bottom = 51.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

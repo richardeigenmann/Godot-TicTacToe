@@ -96,63 +96,76 @@ func isWinner( player ):
 
 func computerCanWin():
 	for row in range(3):
-		if computerCanWinRow( row ):
+		var tile = canWinRow( computerState, row )
+		if tile != null:
+			tile.setState( computerState )
 			print ("Rule 1: Win")
 			return true
 	for col in range(3):
-		if computerCanWinCol( col ):
+		var tile = canWinCol( computerState, col )
+		if tile != null:
+			tile.setState( computerState )
 			print ("Rule 1: Win")
 			return true
-	return computerCanWinDiagonals()
-
-func computerCanWinRow( row ):
-	if tiles[row*3].state == computerState && tiles[row*3+1].state == computerState && tiles[row*3+2].state == EMPTY:
-		tiles[row*3+2].setState(computerState)
-		return true
-	elif tiles[row*3].state == computerState && tiles[row*3+1].state == EMPTY && tiles[row*3+2].state == computerState:
-		tiles[row*3+1].setState(computerState)
-		return true
-	elif tiles[row*3].state == EMPTY && tiles[row*3+1].state == computerState && tiles[row*3+2].state == computerState:
-		tiles[row*3].setState(computerState)
+	var tile = canWinDiagonal( computerState )
+	if tile != null:
+		tile.setState( computerState )
+		print ("Rule 1: Win")
 		return true
 	return false
 
-func computerCanWinCol( col ):
-	if tiles[col].state == computerState && tiles[col+3].state == computerState && tiles[col+6].state == EMPTY:
-		tiles[col+6].setState(computerState)
-		return true
-	elif tiles[col].state == computerState && tiles[col+3].state == EMPTY && tiles[col+6].state == computerState:
-		tiles[col+3].setState(computerState)
-		return true
-	elif tiles[col].state == EMPTY && tiles[col+3].state == computerState && tiles[col+6].state == computerState:
-		tiles[col].setState(computerState)
-		return true
+# Tests the row for the supplied player and returns the winning tile
+# @param testState The enum for X or O who would win the row
+# @param row the row [0..1] that should be tested
+# @return the winning tile, null if no win is possible
+func canWinRow( testState, row ):
+	if tiles[row*3].state == testState && tiles[row*3+1].state == testState && tiles[row*3+2].state == EMPTY:
+		return tiles[row*3+2]
+	elif tiles[row*3].state == testState && tiles[row*3+1].state == EMPTY && tiles[row*3+2].state == testState:
+		return tiles[row*3+1]
+	elif tiles[row*3].state == EMPTY && tiles[row*3+1].state == testState && tiles[row*3+2].state == testState:
+		return tiles[row*3]
+	return null
 
-func computerCanWinDiagonals():
-	if tiles[0].state == computerState && tiles[4].state == computerState && tiles[8].state == EMPTY:
-		tiles[8].setState(computerState)
-		print ("Rule 1: Win")
-		return true
-	elif tiles[0].state == computerState && tiles[4].state == EMPTY && tiles[8].state == computerState:
-		tiles[4].setState(computerState)
-		print ("Rule 1: Win")
-		return true
-	elif tiles[0].state == EMPTY && tiles[4].state == computerState && tiles[8].state == computerState:
-		tiles[0].setState(computerState)
-		print ("Rule 1: Win")
-		return true
-	if tiles[2].state == computerState && tiles[4].state == computerState && tiles[6].state == EMPTY:
-		tiles[6].setState(computerState)
-		print ("Rule 1: Win")
-		return true
-	elif tiles[2].state == computerState && tiles[4].state == EMPTY && tiles[6].state == computerState:
-		tiles[4].setState(computerState)
-		print ("Rule 1: Win")
-		return true
-	elif tiles[2].state == EMPTY && tiles[4].state == computerState && tiles[6].state == computerState:
-		tiles[2].setState(computerState)
-		print ("Rule 1: Win")
-		return true
+# Tests the column for the supplied player and returns the winning tile
+# @param testState The enum for X or O who would win the column
+# @param col the col [0..1] that should be tested
+# @return the winning tile, null if no win is possible
+func canWinCol( testState, col ):
+	if tiles[col].state == testState && tiles[col+3].state == testState && tiles[col+6].state == EMPTY:
+		#tiles[col+6].setState(testState)
+		return tiles[col+6]
+	elif tiles[col].state == testState && tiles[col+3].state == EMPTY && tiles[col+6].state == testState:
+		#tiles[col+3].setState(testState)
+		return tiles[col+3]
+	elif tiles[col].state == EMPTY && tiles[col+3].state == testState && tiles[col+6].state == testState:
+		#tiles[col].setState(testState)
+		return tiles[col]
+	return null
+
+# Tests the diagonal for the supplied player and returns the winning tile
+# @param testState The enum for X or O who would win the diagonal
+# @return the winning tile, null if no win is possible
+func canWinDiagonal( testState ):
+	if tiles[0].state == testState && tiles[4].state == testState && tiles[8].state == EMPTY:
+		#tiles[8].setState(testState)
+		return tiles[8]
+	elif tiles[0].state == testState && tiles[4].state == EMPTY && tiles[8].state == testState:
+		#tiles[4].setState(testState)
+		return tiles[4]
+	elif tiles[0].state == EMPTY && tiles[4].state == testState && tiles[8].state == testState:
+		#tiles[0].setState(testState)
+		return tiles[0]
+	if tiles[2].state == testState && tiles[4].state == testState && tiles[6].state == EMPTY:
+		#tiles[6].setState(testState)
+		return tiles[6]
+	elif tiles[2].state == testState && tiles[4].state == EMPTY && tiles[6].state == testState:
+		#tiles[4].setState(testState)
+		return tiles[4]
+	elif tiles[2].state == EMPTY && tiles[4].state == testState && tiles[6].state == testState:
+		#tiles[2].setState(testState)
+		return tiles[2]
+	return null
 
 func computerMustBlock():
 	for row in range(3):
