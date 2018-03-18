@@ -31,6 +31,13 @@ func gameOver():
 	$NewGameButton.visible = true
 	$ComputerScoreLabel.text = str(computerWins)
 	$YouScoreLabel.text = str(humanWins)
+	if $AutoplayCheckbox.is_pressed():
+		$AutoplayTimer.start()
+
+func _on_AutoplayTimer_timeout():
+	newGame()
+	humanTurn()
+
 
 # The Tile must call here when the human has played
 func humanHasPlayed():
@@ -47,27 +54,55 @@ func humanHasPlayed():
 		$ComputerThinkTimer.start()
 		$ComputerThinkingAnimation.visible = true
 
+func _on_AutoplayCheckbox_pressed():
+	if $AutoplayCheckbox.is_pressed():
+		$HumanThinkTimer.start()
+
 func _on_ComputerThinkTimer_timeout():
 	$ComputerThinkingAnimation.visible = false
 	computerTurn()
 
+func _on_HumanTinkTimer_timeout():
+	$ComputerThinkingAnimation.visible = false
+	humanTurn()
 
-# Logic taken from Wikipedia: https://en.wikipedia.org/wiki/Tic-tac-toe
 func computerTurn():
-	$WikipediaAlgo.playMove( computerState, playerState )
-	#$RandomAlgo.playMove( computerState )
+	#$WikipediaAlgo.playMove( computerState, playerState )
+	$RandomAlgo.playMove( computerState, playerState )
 	moves += 1
 
 	if isWinner(computerState):
 		$WinnerLabel.text = "Computer\nwins!"
 		computerWins += 1
 		gameOver()
-
-	if moves > 8:
+	elif moves > 8:
 		$WinnerLabel.text = "Draw"
 		gameOver()
+	if $AutoplayCheckbox.is_pressed():
+		$HumanThinkTimer.start()
+		$ComputerThinkingAnimation.visible = true
 
 	humanPlayersTurn = true
+	
+func humanTurn():
+	#$WikipediaAlgo.playMove( playerState, computerState )
+	$RandomAlgo.playMove( playerState, computerState )
+	moves += 1
+
+	if isWinner(playerState):
+		$WinnerLabel.text = "Human\nwins!"
+		humanWins += 1
+		gameOver()
+	elif moves > 8:
+		$WinnerLabel.text = "Draw"
+		gameOver()
+	else:
+		$ComputerThinkTimer.start()
+		$ComputerThinkingAnimation.visible = true
+
+	humanPlayersTurn = false
+	
+	
 
 # Checks if the supplied player won
 func isWinner( player ):
@@ -135,3 +170,4 @@ func printStates():
 	for row in range(3):
 		for col in range(3):
 			print ("Row: ", row, " Col: ", col, " State: ", tiles[row*3 + col].state)
+
