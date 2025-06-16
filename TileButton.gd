@@ -25,5 +25,6 @@ func setState( newState ):
 
 func _on_Button_pressed():
 	if myBoard.humanPlayersTurn && state == myBoard.EMPTY:
+		print("Button Pressed")
 		setState ( myBoard.playerState )
 		myBoard.humanHasPlayed()
